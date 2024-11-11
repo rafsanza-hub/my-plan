@@ -1,68 +1,94 @@
-# CodeIgniter 4 Application Starter
+# MyPlan - Sistem Keuangan Pribadi
 
-## What is CodeIgniter?
+**MyPlan** adalah aplikasi berbasis web yang memungkinkan pengguna untuk mengelola keuangan pribadi mereka dengan mudah dan efisien. Aplikasi ini menyediakan fitur untuk mencatat pengeluaran, pemasukan, serta laporan keuangan yang lengkap.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+## Fitur
+- **Login, Register & Magic login link (via Email)**
+- **Dashboard Admin**: Mengelola data keuangan, transaksi, dan laporan.
+- **Daftar Transaksi**: Menambah, mengedit, dan menghapus transaksi pemasukan dan pengeluaran.
+- **Laporan Keuangan**: Menampilkan laporan bulanan dan tahunan.
+- **Pengelolaan Kategori Pengeluaran**: Membuat dan mengelola kategori pengeluaran seperti makanan, transportasi, hiburan, dll.
+- **Grafik Keuangan**: Menampilkan grafik pemasukan dan pengeluaran menggunakan ApexCharts.
+- **Pencatatan Utang/Piutang**: Melacak utang dan piutang Anda.
+- **Keamanan Otentikasi**: Menggunakan **CodeIgniter Shield** untuk keamanan otentikasi pengguna.
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+## Framework dan Library Yang Digunakan
+- **CodeIgniter 4**: Framework PHP untuk pengembangan aplikasi.
+- **CodeIgniter Shield**: Untuk autentikasi dan manajemen akses pengguna.
+- **Bootstrap 5**: Framework CSS untuk tampilan yang responsif dan modern.
+- **Tabler Icons**: Koleksi ikon yang digunakan di aplikasi.
+- **ApexCharts**: Untuk menampilkan grafik laporan keuangan.
+- **Endroid QR Code Generator**: Untuk menghasilkan kode QR.
+- **Mebjas Html5-QRCode Scanner**: Untuk pemindaian QR menggunakan kamera.
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+## Cara Penggunaan
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+### Persyaratan
+Sebelum memulai, pastikan Anda memiliki perangkat dengan persyaratan berikut:
+- **PHP 8.1+** dan **MySQL** atau **XAMPP versi 8.1+** dengan mengaktifkan extension `intl` dan `gd`.
+- **Composer** untuk manajemen dependensi.
+- **(Opsional)** Kamera/webcam untuk pemindaian QR. Anda bisa menggunakan kamera HP dengan bantuan software **DroidCam**.
 
-## Installation & updates
+### Instalasi
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+1. **Unduh dan impor kode proyek ini ke dalam direktori proyek Anda (htdocs):**
+   ```bash
+   git clone https://github.com/rafsanza-hub/myplan.git
+   cd myplan
+Salin file .env.example menjadi .env:
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+bash
+Salin kode
+cp .env.example .env
+(Opsional) Konfigurasi file .env untuk mengatur parameter seperti koneksi database dan pengaturan lainnya:
 
-## Setup
+ini
+Salin kode
+DB_HOST=localhost
+DB_NAME=myplan_financial
+DB_USER=root
+DB_PASS=
+Instal dependensi yang diperlukan: Jalankan perintah berikut di terminal:
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+bash
+Salin kode
+composer install
+Buat database myplan_financial di phpMyAdmin atau MySQL:
 
-## Important Change with index.php
+Akses phpMyAdmin dan buat database baru dengan nama myplan_financial.
+Jalankan migrasi database untuk membuat struktur tabel yang diperlukan: Ketikkan perintah berikut di terminal:
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+bash
+Salin kode
+php spark migrate --all
+(Opsional) Isi database dengan data dummy/seeder: Jika Anda ingin mengisi database dengan data dummy, jalankan perintah ini:
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+bash
+Salin kode
+php spark db:seed Seeder # Semua seeder
+php spark db:seed TransactionSeeder # Transaksi
+php spark db:seed CategorySeeder # Kategori Pengeluaran
+php spark db:seed DebtSeeder # Utang/Piutang
+Jalankan aplikasi web: Jalankan perintah berikut untuk memulai server lokal:
 
-**Please** read the user guide for a better explanation of how CI4 works!
+bash
+Salin kode
+php spark serve
+Akses aplikasi di browser:
 
-## Repository Management
+Buka http://localhost:8080 untuk melihat aplikasi Anda.
+Login menggunakan kredensial superadmin berikut:
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+Username: superadmin
+Email: superadmin@admin.com
+Password: superadmin
+Contributing
+Kami menerima kontribusi dari komunitas terbuka untuk meningkatkan aplikasi ini. Jika Anda menemukan masalah, bug, atau memiliki saran untuk peningkatan, silakan buat issue baru dalam repositori ini atau ajukan pull request.
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+Lisensi
+Aplikasi ini dilisensikan di bawah MIT License.
 
-## Server Requirements
+Dukungan
+Jika Anda mengalami masalah atau memiliki pertanyaan, buka issue di repositori ini atau kirim email ke kami di support@myplan.com.
 
-PHP version 8.1 or higher is required, with the following extensions installed:
-
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+Terima kasih telah menggunakan MyPlan! Kami harap aplikasi ini dapat membantu Anda mengelola keuangan pribadi dengan lebih baik dan efisien.
