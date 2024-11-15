@@ -86,7 +86,7 @@
                 href="<?= base_url('logout') ?>"
                 target="_blank"
                 class="menu-link">
-                <i class="menu-icon tf-icons bx bx-file"></i>
+                <i class="menu-icon tf-icons bx-power-off "></i>
                 <div data-i18n="Documentation">Logout</div>
             </a>
         </li>

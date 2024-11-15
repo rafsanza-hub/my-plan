@@ -33,7 +33,7 @@ class UsersSeeder extends Seeder
                 'username' => 'superadmin',
                 'fullname' => null,
                 'user_image' => 'default.png',
-                'password_hash' => 'superadmin',
+                'password_hash' => '$2y$10$FxQlLaewVyIBhPtFIEzqFuc/.iDPMmQVkzskfbvGKVSchGhVRias2',
                 'reset_hash' => null,
                 'reset_at' => null,
                 'reset_expires' => null,
