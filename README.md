@@ -78,18 +78,6 @@ Ikuti langkah-langkah berikut untuk menginstal aplikasi pengelolaan keuangan pri
 
 ---
 
-## Kontribusi
-
-Kami sangat mengapresiasi kontribusi dari komunitas untuk meningkatkan aplikasi ini. Jika Anda menemukan bug, masalah, atau memiliki saran untuk perbaikan, Anda bisa:
-
-- Membuat **issue baru** di repositori ini.
-- Mengajukan **pull request** untuk fitur atau perbaikan yang telah Anda buat.
-
-Setiap kontribusi sangat berharga untuk pengembangan aplikasi ini.
-
----
-
 ### Catatan Tambahan
 
-- Pastikan Anda telah memeriksa dan mengonfigurasi database serta file `.env` dengan benar agar aplikasi dapat berjalan lancar.
-- Untuk pengaturan tambahan atau modifikasi, Anda dapat merujuk ke dokumentasi dan tutorial di repositori ini.
+- Pastikan telah memeriksa dan mengonfigurasi database serta file `.env` dengan benar agar aplikasi dapat berjalan lancar.
